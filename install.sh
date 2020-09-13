@@ -4,7 +4,7 @@ echo "Changing interface name"
 /sbin/ip link set ens224 name eth0
 /sbin/ip link set eth0 up
 
-"Delete old directories if exists"
+echo "Delete old directories if exists"
 rm -rf /usr/local/etc/3proxy/
 rm -rf /home/proxy-installer
 
@@ -96,7 +96,7 @@ WORKDIR="/home/proxy-installer"
 WORKDATA="${WORKDIR}/data.txt"
 mkdir $WORKDIR && cd $_
 
-IP4=$(curl -4 -s icanhazip.com)
+IP4=192.168.1.23
 IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
 
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
